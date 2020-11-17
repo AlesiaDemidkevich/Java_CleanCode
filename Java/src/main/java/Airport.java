@@ -83,7 +83,7 @@ public class Airport {
                 experimentalPlanes.add((ExperimentalPlane) plane);
             }
         }
-        return experimentalPlanes;
+        return ExperimentalPlanes;
     }
 
     public Airport sortByMaxDistance() {
@@ -107,7 +107,7 @@ public class Airport {
     public Airport sortByMaxLoadCapacity() {
         Collections.sort(allPlanes, new Comparator<Plane>() {
             public int compare(Plane firstPlane, Plane secondPlane) {
-                return firstPlane.getMinLoadCapacity() -  secondPlane.getMinLoadCapacity();
+                return firstPlane.getMaxLoadCapacity() -  secondPlane.getMaxLoadCapacity();
             }
         });
         return this;

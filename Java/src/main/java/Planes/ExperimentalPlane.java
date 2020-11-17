@@ -32,10 +32,11 @@ public class ExperimentalPlane extends Plane{
         return super.hashCode();
     }
 
-    @Override
-    public String toString() {
-        return "ExperimentalPlane{" +
-                "model='" + modelOfExperimentalPlane + '\'' +
-                '}';
-    }
+    @Override 
+        public String toString() { 
+        return super.toString().replace("}", 
+        ", experimentalType=" + experimentalType + 
+        ", classificationLevel=" + classificationLevel + 
+        '}');
+
 }
