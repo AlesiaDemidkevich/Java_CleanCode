@@ -83,7 +83,7 @@ public class Airport {
                 experimentalPlanes.add((ExperimentalPlane) plane);
             }
         }
-        return ExperimentalPlanes;
+        return experimentalPlanes;
     }
 
     public Airport sortByMaxDistance() {
