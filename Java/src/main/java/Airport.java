@@ -17,7 +17,7 @@ public class Airport {
         this.planes = planes;
     }
 
-    public List<Plane> getPlanes() {
+    public List<? extends Plane> getPlanes() {
         return planes;
     }
 
