@@ -1,39 +1,39 @@
+// version: 1.1
+// made by Vitali Shulha
+// 4-Jan-2019
+
 import Planes.ExperimentalPlane;
 import models.MilitaryType;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
 import Planes.Plane;
+
 import java.util.*;
 
-// version: 1.1
-// made by Vitali Shulha
-// 4-Jan-2019
-
 public class Airport {
-    private List<? extends Plane> allPlanes; 
+    private List<? extends Plane> planes; 
       
     public Airport(List<? extends Plane> planes) {
-        this.allPlanes = planes;
+        this.planes = planes;
     }
 
-    public List<? extends Plane> getPlanes() {
-        return allPlanes;
+    public List<Plane> getPlanes() {
+        return planes;
     }
 
     public List<PassengerPlane> getPassengerPlanes() {
-        List<? extends Plane> allPlanes = this.allPlanes;
-        List<PassengerPlane> allPassengerPlanes = new ArrayList<>();
-        for (Plane plane : allPlanes) {
+        List<PassengerPlane> passengerPlanes = new ArrayList<>();
+        for (Plane plane : planes) {
             if (plane instanceof PassengerPlane) {
-                allPassengerPlanes.add((PassengerPlane) plane);
+                passengerPlanes.add((PassengerPlane) plane);
             }
         }
-        return allPassengerPlanes;
+        return passengerPlanes;
     }
 
     public List<MilitaryPlane> getMilitaryPlanes() {
         List<MilitaryPlane> militaryPlanes = new ArrayList<>();
-        for (Plane plane : allPlanes) {
+        for (Plane plane : planes) {
             if (plane instanceof MilitaryPlane) {
                 militaryPlanes.add((MilitaryPlane) plane);
             }            
@@ -78,7 +78,7 @@ public class Airport {
 
     public List<ExperimentalPlane> getExperimentalPlanes() {
         List<ExperimentalPlane> experimentalPlanes = new ArrayList<>();
-        for (Plane plane : allPlanes) {
+        for (Plane plane : planes) {
             if (plane instanceof ExperimentalPlane) {
                 experimentalPlanes.add((ExperimentalPlane) plane);
             }
@@ -87,7 +87,7 @@ public class Airport {
     }
 
     public Airport sortByMaxDistance() {
-        Collections.sort(allPlanes, new Comparator<Plane>() {
+        Collections.sort(planes, new Comparator<Plane>() {
             public int compare(Plane firstPlane, Plane secondPlane) {
                 return firstPlane.getMaxFlightDistance() - secondPlane.getMaxFlightDistance();
             }
@@ -96,16 +96,16 @@ public class Airport {
     }
    
     public Airport sortByMaxSpeed() {
-        Collections.sort(allPlanes, new Comparator<Plane>() {
+        Collections.sort(planes, new Comparator<Plane>() {
             public int compare(Plane firstPlane, Plane secondPlane) {
-                return firstPlane.getMaxPlaneSpeed() - secondPlane.getMaxPlaneSpeed();
+                return firstPlane.getMaxSpeed() - secondPlane.getMaxSpeed();
             }
         });
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
-        Collections.sort(allPlanes, new Comparator<Plane>() {
+        Collections.sort(planes, new Comparator<Plane>() {
             public int compare(Plane firstPlane, Plane secondPlane) {
                 return firstPlane.getMaxLoadCapacity() -  secondPlane.getMaxLoadCapacity();
             }
@@ -116,7 +116,7 @@ public class Airport {
     @Override
     public String toString() {
         return "Airport{" +
-                "Planes=" + allPlanes.toString() +
+                "Planes=" + planes.toString() +
                 '}';
     } 
 }

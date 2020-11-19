@@ -6,8 +6,8 @@ public class PassengerPlane extends Plane{
 
     private int passengersCapacity;
 
-    public PassengerPlane(String modelOfPassengerPlane, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, int passengersCapacity) {
-        super( modelOfPassengerPlane, maxSpeed, maxFlightDistance, maxLoadCapacity);
+    public PassengerPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, int passengersCapacity) {
+        super( model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.passengersCapacity = passengersCapacity;
     }
 
@@ -17,11 +17,8 @@ public class PassengerPlane extends Plane{
 
     @Override 
     public boolean equals(Object plane) { 
-        if (this == plane) return true; 
-        if (!(plane instanceof PassengerPlane)) return false; 
-        if (!super.equals(plane)) return false; 
-            PassengerPlane currentPlane = (PassengerPlane) plane; 
-        return passengersCapacity == currentPlane.passengersCapacity; 
+        return this == plane || (plane instanceof PassengerPlane) || super.equals(plane) ||
+        passengersCapacity == ((PassengerPlane) plane).passengersCapacity;
     } 
     
     @Override 

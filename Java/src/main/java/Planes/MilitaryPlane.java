@@ -8,8 +8,8 @@ public class MilitaryPlane extends Plane{
 
     private MilitaryType militaryType;
 
-    public MilitaryPlane(String modelOfMilitaryPlane, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, MilitaryType militaryType) {
-        super(modelOfMilitaryPlane, maxSpeed, maxFlightDistance, maxLoadCapacity);
+    public MilitaryPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, MilitaryType militaryType) {
+        super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.militaryType = militaryType;
     }
 
@@ -26,11 +26,8 @@ public class MilitaryPlane extends Plane{
 
     @Override
     public boolean equals(Object plane) {
-        if (this == plane) return true;
-        if (!(plane instanceof MilitaryPlane)) return false;
-        if (!super.equals(plane)) return false;
-        MilitaryPlane currentPlane = (MilitaryPlane) plane;
-        return militaryType == currentPlane.militaryType;
+        return this == plane || (plane instanceof MilitaryPlane) || super.equals(plane) ||
+        militaryType == ((MilitaryPlane) plane).militaryType;
     }
 
     @Override

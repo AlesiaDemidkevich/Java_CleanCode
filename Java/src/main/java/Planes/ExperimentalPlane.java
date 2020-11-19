@@ -8,8 +8,8 @@ public class ExperimentalPlane extends Plane{
     private ExperimentalTypes  experimentalType;
     private ClassificationLevel classificationLevel;
 
-    public ExperimentalPlane(String modelOfExperimentalPlane, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalTypes experimentalType, ClassificationLevel classificationLevel) {
-        super(modelOfExperimentalPlane, maxSpeed, maxFlightDistance, maxLoadCapacity);
+    public ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalTypes experimentalType, ClassificationLevel classificationLevel) {
+        super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.experimentalType = experimentalType;
         this.classificationLevel = classificationLevel;
     }
@@ -24,7 +24,9 @@ public class ExperimentalPlane extends Plane{
 
     @Override
     public boolean equals(Object plane) {
-        return super.equals(plane);
+        return this == plane || (plane instanceof ExperimentalPlane) || super.equals(plane) ||
+                classificationLevel == ((ExperimentalPlane) plane).classificationLevel ||
+                experimentalType == ((ExperimentalPlane) plane).experimentalType;
     }
 
     @Override
