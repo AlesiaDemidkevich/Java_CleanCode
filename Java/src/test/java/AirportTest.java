@@ -59,7 +59,7 @@ public class AirportTest {
     public void sortPlanesByMaxDistanceTest() {
         Airport airport = new Airport(planes); 
         airport.sortByMaxDistance();
-        Assert.assertTrue(airport.getPlanes().get(0).getMaxFlightDistance() <= airport.Planes().get(1).getMaxFlightDistance());
+        Assert.assertTrue(airport.getPlanes().get(0).getMaxFlightDistance() <= airport.getPlanes().get(1).getMaxFlightDistance());
     }
 
     @Test
